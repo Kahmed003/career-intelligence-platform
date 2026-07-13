@@ -65,3 +65,4 @@
 - [Entity Relationship Diagram](04-database/02_ERD.md)
 - [PostgreSQL Database Schema](04-database/03_DATABASE_SCHEMA.md)
 - [PostgreSQL Indexing Strategy](04-database/04_INDEXING_STRATEGY.md)
+- [Row Level Security Policies](04-database/05_RLS_POLICIES.md)
