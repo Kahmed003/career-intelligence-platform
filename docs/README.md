@@ -57,3 +57,4 @@
 
 - Sprint 1
 - Sprint 2
+- [Domain Glossary](02-domain/GLOSSARY.md)
