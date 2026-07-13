@@ -63,3 +63,4 @@
 - [System Architecture](03-architecture/ARCHITECTURE.md)
 - [Data Dictionary](04-database/01_DATA_DICTIONARY.md)
 - [Entity Relationship Diagram](04-database/02_ERD.md)
+- [PostgreSQL Database Schema](04-database/03_DATABASE_SCHEMA.md)
