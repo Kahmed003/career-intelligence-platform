@@ -62,3 +62,4 @@
 - [Lifecycle Specification](02-domain/LIFECYCLES.md)
 - [System Architecture](03-architecture/ARCHITECTURE.md)
 - [Data Dictionary](04-database/01_DATA_DICTIONARY.md)
+- [Entity Relationship Diagram](04-database/02_ERD.md)
