@@ -61,3 +61,4 @@
 - [Object Catalog](02-domain/OBJECTS.md)
 - [Lifecycle Specification](02-domain/LIFECYCLES.md)
 - [System Architecture](03-architecture/ARCHITECTURE.md)
+- [Data Dictionary](04-database/01_DATA_DICTIONARY.md)
