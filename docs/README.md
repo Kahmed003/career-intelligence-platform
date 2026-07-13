@@ -58,3 +58,4 @@
 - Sprint 1
 - Sprint 2
 - [Domain Glossary](02-domain/GLOSSARY.md)
+- [Object Catalog](02-domain/OBJECTS.md)
