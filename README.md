@@ -1,18 +1,34 @@
-# career-intelligence-platform/
+career-intelligence-platform/
+
+docs/
 │
-├── README.md
+├── 00-vision/
+├── 01-product/
+├── 02-domain/
+├── 03-architecture/
+├── 04-database/
+├── 05-api/
+├── 06-ai/
+├── 07-integrations/
+├── 08-ui-ux/
+├── 09-decisions/
+├── 10-engineering/
+├── 11-testing/
+├── 12-roadmap/
+└── assets/
+
+apps/
 │
-├── docs/
-│   ├── 01-product/PRD.md
-│   ├── 02-domain/
-│   ├── 03-architecture/
-│   ├── 04-database/
-│   ├── 05-design/
-│   ├── 06-ai/
-│   ├── 07-api/
-│   ├── 08-development/
-│   ├── 09-decisions/
-│   ├── 10-sprints/
-│   └── assets/
+└── web/
+
+packages/
 │
-└── apps/
+├── ui/
+├── domain/
+├── ai/
+├── integrations/
+├── database/
+├── shared/
+└── config/
+
+.github/
