@@ -69,3 +69,4 @@
 - [Database Migration Strategy](04-database/06_MIGRATION_STRATEGY.md)
 - [Database Naming Conventions](04-database/07_NAMING_CONVENTIONS.md)
 - [Supabase Backend](docs/05-supabase/README.md) — backend architecture, migrations, security, testing, and deployment conventions.
+- [Shared PostgreSQL Enums](docs/05-supabase/04_SHARED_ENUMS.md) — stable cross-domain lifecycle, visibility, graph, and activity actor types.
