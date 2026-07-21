@@ -68,3 +68,4 @@
 - [Row Level Security Policies](04-database/05_RLS_POLICIES.md)
 - [Database Migration Strategy](04-database/06_MIGRATION_STRATEGY.md)
 - [Database Naming Conventions](04-database/07_NAMING_CONVENTIONS.md)
+- [Supabase Backend](docs/05-supabase/README.md) — backend architecture, migrations, security, testing, and deployment conventions.
