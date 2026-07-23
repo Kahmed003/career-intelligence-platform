@@ -72,3 +72,4 @@
 - [Shared PostgreSQL Enums](docs/05-supabase/04_SHARED_ENUMS.md) — stable cross-domain lifecycle, visibility, graph, and activity actor types.
 - [Object Registry](docs/05-supabase/06_OBJECT_REGISTRY.md) — canonical identity, ownership, lifecycle, visibility, and metadata for first-class domain objects.
 - [Relationship Graph](docs/05-supabase/07_RELATIONSHIP_GRAPH.md) — typed, directional, temporal, and provenance-aware connections between Career OS objects.
+- [Storage Foundation](docs/05-supabase/06_STORAGE.md) — bucket architecture, user path conventions, access policies, and file-governance rules.
