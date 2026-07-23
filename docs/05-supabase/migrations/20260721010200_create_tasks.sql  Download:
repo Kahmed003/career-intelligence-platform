@@ -1,0 +1,104 @@
+/*
+Migration: 20260721010200_create_tasks.sql
+Purpose: Create Tasks domain.
+*/
+begin;
+
+create table if not exists public.tasks(
+    id uuid
+        constraint pk_tasks primary key
+        references public.objects(id) on delete restrict,
+
+    project_id uuid
+        constraint fk_tasks__project
+        references public.projects(id) on delete set null,
+
+    parent_task_id uuid
+        constraint fk_tasks__parent
+        references public.tasks(id) on delete set null,
+
+    description text,
+
+    due_date date,
+
+    completed_at timestamptz,
+
+    priority smallint default 3
+        constraint ck_tasks__priority
+        check(priority between 1 and 5),
+
+    estimated_minutes integer
+        constraint ck_tasks__estimate
+        check(estimated_minutes is null or estimated_minutes>=0),
+
+    created_at timestamptz not null default statement_timestamp(),
+    updated_at timestamptz not null default statement_timestamp(),
+
+    constraint ck_tasks__completed_after_create
+    check(completed_at is null or completed_at>=created_at),
+
+    constraint ck_tasks__no_self_parent
+    check(parent_task_id is null or parent_task_id<>id)
+);
+
+comment on table public.tasks is
+'Domain-specific task attributes.';
+
+create trigger trg_tasks__updated_at
+before update on public.tasks
+for each row execute function private.set_updated_at();
+
+create or replace function private.validate_task_object()
+returns trigger
+language plpgsql
+security definer
+set search_path=public
+as $$
+declare t text;
+begin
+ select object_type into t from public.objects where id=new.id;
+ if not found then
+   raise exception 'Missing canonical object.';
+ end if;
+ if t<>'task' then
+   raise exception 'Object type must be task.';
+ end if;
+ return new;
+end;
+$$;
+
+drop trigger if exists trg_tasks__validate on public.tasks;
+create trigger trg_tasks__validate
+before insert or update on public.tasks
+for each row execute function private.validate_task_object();
+
+create index if not exists ix_tasks__project on public.tasks(project_id);
+create index if not exists ix_tasks__parent on public.tasks(parent_task_id);
+create index if not exists ix_tasks__due_date on public.tasks(due_date);
+
+alter table public.tasks enable row level security;
+
+create policy tasks_select_owner
+on public.tasks
+for select to authenticated
+using(private.is_object_owner(id));
+
+create policy tasks_insert_owner
+on public.tasks
+for insert to authenticated
+with check(private.is_object_owner(id));
+
+create policy tasks_update_owner
+on public.tasks
+for update to authenticated
+using(private.is_object_owner(id))
+with check(private.is_object_owner(id));
+
+create policy tasks_delete_owner
+on public.tasks
+for delete to authenticated
+using(private.is_object_owner(id));
+
+grant select,insert,update,delete on public.tasks to authenticated;
+
+commit;
