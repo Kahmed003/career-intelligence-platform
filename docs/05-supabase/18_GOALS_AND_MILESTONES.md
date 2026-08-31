@@ -1,12 +1,3 @@
-
-# Career OS — Goals and Milestones Domain
-
-**Document ID:** COS-DOM-GOAL-001  
-**Version:** 1.0.0  
-**Status:** Approved for implementation  
-**Canonical path:** `docs/05-supabase/18_GOALS_AND_MILESTONES.md`  
-**Related migration:** `supabase/migrations/20260721010900_create_goals_and_milestones.sql`
-
 ## 1. Purpose
 
 The Goals and Milestones domain provides the strategic planning layer above
@@ -104,6 +95,4 @@ owner boundary.
 
 ## 9. Recommended Commit Message
 
-```text
-feat(goals): create goals and milestones domain
 ```
