@@ -1,32 +1,36 @@
-# Career OS — Opportunities Workspace Batch 8
+# Career OS — Network & Relationship Workspace Batch 9
 
-Apply after Batch 7.
+Apply after Batch 8.
 
-## CSS integration
-
-At the top of `src/app/globals.css`, after the existing application-workspace import, add:
+## CSS
+Add at the top of `src/app/globals.css`:
 
 ```css
+@import "./application-workspace.css";
 @import "./opportunity-workspace.css";
+@import "./network-workspace.css";
+```
+
+## Query export
+Add this export to `src/lib/queries/index.ts`:
+
+```ts
+export * from "./network.query";
 ```
 
 ## Implemented
-- ranked opportunity workspace;
-- client-side role/company/location search;
-- opportunity-type filtering;
-- opportunity detail route;
-- preference criterion evaluation;
-- organization context from matching read model;
-- direct Start Application workflow using the existing application Server Action.
+- relationship health overview;
+- follow-up queue;
+- person detail pages;
+- organization detail pages;
+- organization contact lists;
+- person/organization interaction history.
 
-This removes the normal need to manually copy an Opportunity UUID into the Applications workspace.
-
-## Integration note
-The repository return shape is normalized in the opportunity detail page using the Batch 1
-`OpportunitiesRepository` contract. After replacing the placeholder Supabase database types with
-generated types, remove localized `any` casts and derive explicit DTOs from the generated view/table
-types.
+## Deliberate boundary
+Interaction creation is **not** implemented by inserting directly into `interactions_communications`.
+The existing application-service batches did not create a validated interaction mutation service.
+The UI therefore displays a clear disabled capture state instead of bypassing the architecture.
 
 ## Next
-Batch 9 — Network / Relationship Workspace:
-people, organizations, relationship health, follow-up queue, interaction history, and communication capture.
+Batch 10 should add the Interaction/Communication mutation vertical slice:
+repository + application service + Zod schema + Server Action + capture form, then connect it here.
