@@ -1,20 +1,33 @@
-# Career OS — Dashboard Data Batch 4
+# Career OS — Next.js App Shell Batch 6
 
-Place these files on top of Batches 1–3.
+Apply on top of Batches 1–5.
 
-No new browser database access is introduced. Use `loadCareerDashboard()` from Server Components.
+## Includes
+- App Router root layout
+- authenticated `(app)` route group
+- login route
+- server-side auth guard
+- sidebar and top header
+- live dashboard page using Batch 4 `loadCareerDashboard()`
+- placeholder domain workspaces for applications, opportunities, network, projects, and settings
+- responsive baseline CSS
 
-Before typechecking, regenerate the Supabase types against the fully migrated database:
+## Integration
+Regenerate Supabase types and typecheck the complete project:
 
 ```bash
 npm run db:types
 npm run typecheck
 ```
 
-## Important production note
+The dashboard component currently uses localized `any` access for read-view rows because Batch 4's
+DTO deliberately used `unknown[]`. Replace those with generated view-derived DTOs in the next
+frontend hardening pass.
 
-`campaign_performance_summary` still has known historical soft-delete/deadline-count limitations identified during database hardening. This batch preserves the current database contract rather than inventing a replacement in TypeScript. Correct that view with a forward SQL migration before treating campaign analytics as authoritative historical reporting.
-
-The next application milestone should either:
-1. perform that analytics consolidation migration first; then
-2. build the actual Next.js dashboard/page shell and domain UI.
+## Next
+Build the Applications vertical slice:
+- pipeline board/list
+- application detail page
+- status transition controls
+- deadline/next-action UI
+- application creation form using Batch 3 Server Actions
