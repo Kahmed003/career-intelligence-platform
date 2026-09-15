@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "db:types": "bash scripts/generate-supabase-types.sh",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.0.0"
+  }
+}
