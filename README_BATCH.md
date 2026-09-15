@@ -1,14 +1,15 @@
-# Career OS — Next.js Data Access Batch 1
+# Career OS — Next.js Application Services Batch 2
 
-Copy the contents into the root of the Next.js Career OS repository.
+This batch depends on Data Access Layer Batch 1.
 
-Then:
+Copy the files into the same Next.js Career OS repository, then:
 
-1. Merge the dependencies/scripts from `package.data-access.json` into the real `package.json`.
-2. Set `.env.local` from `.env.example`.
-3. Install dependencies.
-4. Ensure all Supabase migrations are deployed.
-5. Run `npm run db:types`.
-6. Run `npm run typecheck`.
+1. Ensure Batch 1 repositories are present.
+2. Regenerate `src/lib/supabase/database.types.ts` from the migrated Supabase project.
+3. Run the TypeScript compiler.
+4. Run repository/service tests.
+5. Use services—not repositories directly—from Server Actions and Route Handlers.
 
-Do not keep the placeholder `database.types.ts` after connecting to the real Supabase project.
+Important: if your generated Activity Ledger field names differ from the service assumptions,
+TypeScript will surface the mismatch. Align the service to the generated schema; do not alter
+the database merely to satisfy guessed application code.
