@@ -1,33 +1,43 @@
-# Career OS — Next.js App Shell Batch 6
+# Career OS — Applications Workspace Batch 7
 
-Apply on top of Batches 1–5.
+Apply after Batch 6.
 
-## Includes
-- App Router root layout
-- authenticated `(app)` route group
-- login route
-- server-side auth guard
-- sidebar and top header
-- live dashboard page using Batch 4 `loadCareerDashboard()`
-- placeholder domain workspaces for applications, opportunities, network, projects, and settings
-- responsive baseline CSS
+## Important CSS integration
 
-## Integration
-Regenerate Supabase types and typecheck the complete project:
+Import this batch's application workspace stylesheet from `src/app/globals.css`:
 
-```bash
-npm run db:types
-npm run typecheck
+```css
+@import "./application-workspace.css";
 ```
 
-The dashboard component currently uses localized `any` access for read-view rows because Batch 4's
-DTO deliberately used `unknown[]`. Replace those with generated view-derived DTOs in the next
-frontend hardening pass.
+Place the `@import` at the top of `globals.css`.
+
+## Implemented
+
+- application pipeline board;
+- full application list;
+- application detail route;
+- new application form;
+- application lifecycle/status mutation control;
+- next interview/assessment and offer summary;
+- authenticated server-side reads through `PipelineQueryService`;
+- writes through Batch 3 Server Actions.
+
+## Current integration constraint
+
+The create form asks for an Opportunity UUID because the Opportunities workspace has not yet been
+implemented. Batch 8 should build the Opportunities vertical slice and replace that UUID field with
+an opportunity picker/search flow.
+
+The application components use localized `any` for view rows until generated Supabase view types are
+available. Do not spread these casts into service/repository code.
 
 ## Next
-Build the Applications vertical slice:
-- pipeline board/list
-- application detail page
-- status transition controls
-- deadline/next-action UI
-- application creation form using Batch 3 Server Actions
+
+Batch 8 — Opportunities Workspace:
+- ranked opportunity list;
+- filters;
+- opportunity detail;
+- preference-match explanation;
+- organization context;
+- start-application workflow.
