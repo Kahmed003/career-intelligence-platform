@@ -1,15 +1,14 @@
-# Career OS — Next.js Application Services Batch 2
+# Career OS — Next.js Server Actions Batch 3
 
-This batch depends on Data Access Layer Batch 1.
+Depends on Data Access Batch 1 and Application Services Batch 2.
 
-Copy the files into the same Next.js Career OS repository, then:
+Merge `package.server-actions.json` into the real `package.json`, install dependencies, then run:
 
-1. Ensure Batch 1 repositories are present.
-2. Regenerate `src/lib/supabase/database.types.ts` from the migrated Supabase project.
-3. Run the TypeScript compiler.
-4. Run repository/service tests.
-5. Use services—not repositories directly—from Server Actions and Route Handlers.
+```bash
+npm run db:types
+npm run typecheck
+```
 
-Important: if your generated Activity Ledger field names differ from the service assumptions,
-TypeScript will surface the mismatch. Align the service to the generated schema; do not alter
-the database merely to satisfy guessed application code.
+Use Server Actions for client/form mutations. Server Components may call application services directly for trusted server-side reads.
+
+The schemas intentionally validate stable boundary invariants without duplicating every PostgreSQL constraint.
