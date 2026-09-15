@@ -1,43 +1,32 @@
-# Career OS — Applications Workspace Batch 7
+# Career OS — Opportunities Workspace Batch 8
 
-Apply after Batch 6.
+Apply after Batch 7.
 
-## Important CSS integration
+## CSS integration
 
-Import this batch's application workspace stylesheet from `src/app/globals.css`:
+At the top of `src/app/globals.css`, after the existing application-workspace import, add:
 
 ```css
-@import "./application-workspace.css";
+@import "./opportunity-workspace.css";
 ```
 
-Place the `@import` at the top of `globals.css`.
-
 ## Implemented
+- ranked opportunity workspace;
+- client-side role/company/location search;
+- opportunity-type filtering;
+- opportunity detail route;
+- preference criterion evaluation;
+- organization context from matching read model;
+- direct Start Application workflow using the existing application Server Action.
 
-- application pipeline board;
-- full application list;
-- application detail route;
-- new application form;
-- application lifecycle/status mutation control;
-- next interview/assessment and offer summary;
-- authenticated server-side reads through `PipelineQueryService`;
-- writes through Batch 3 Server Actions.
+This removes the normal need to manually copy an Opportunity UUID into the Applications workspace.
 
-## Current integration constraint
-
-The create form asks for an Opportunity UUID because the Opportunities workspace has not yet been
-implemented. Batch 8 should build the Opportunities vertical slice and replace that UUID field with
-an opportunity picker/search flow.
-
-The application components use localized `any` for view rows until generated Supabase view types are
-available. Do not spread these casts into service/repository code.
+## Integration note
+The repository return shape is normalized in the opportunity detail page using the Batch 1
+`OpportunitiesRepository` contract. After replacing the placeholder Supabase database types with
+generated types, remove localized `any` casts and derive explicit DTOs from the generated view/table
+types.
 
 ## Next
-
-Batch 8 — Opportunities Workspace:
-- ranked opportunity list;
-- filters;
-- opportunity detail;
-- preference-match explanation;
-- organization context;
-- start-application workflow.
+Batch 9 — Network / Relationship Workspace:
+people, organizations, relationship health, follow-up queue, interaction history, and communication capture.
